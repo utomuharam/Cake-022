@@ -1,0 +1,61 @@
+import random
+
+def valentine_prompt():
+    """Asks a yes/no question and gives a random response."""
+
+    questions = [
+        "Do you think I'm the most amazing person ever?",
+        "Is it okay if I steal your heart?",
+        "Will you be my Valentine?",
+        "Do you believe in love at first sight?",
+        "Am I the peanut butter to your jelly?",
+        "Do you think we're a perfect match?",
+        "Is it written in the stars that we're meant to be?",
+        "Do you think I'm charming?",  # Added more questions
+        "Would you say yes to a date with me?",
+        "Do you think I have a great sense of humor?"
+    ]
+
+    responses = [
+        "Yes!",
+        "Definitely!",
+        "Absolutely!",
+        "Of course!",
+        "You bet!",
+        "Without a doubt!",
+        "Without question!",
+        "Without a shadow of a doubt!",
+        "I was hoping you'd ask!",
+        "Yes, a thousand times yes!",
+        "No!",  # Include some "no" options for fun
+        "Nope.",
+        "Not a chance.",
+        "In your dreams!",
+        "Maybe... (just kidding, yes!)"  # Teasing option
+    ]
+
+    question = random.choice(questions)
+    print(question)
+
+    while True:  # Loop for valid input
+        answer = input("Answer (yes/no): ").lower()
+        if answer in ("yes", "no"):
+            break
+        else:
+            print("Please answer with 'yes' or 'no'.")
+
+    response = random.choice(responses)
+
+    if answer == "no" and response not in ("no", "nope", "not a chance", "in your dreams"):
+        print("That's okay... (but secretly I'm hoping you'll change your mind!)")  # Playful response if no but response is positive
+    elif answer == "yes" and response in ("no", "nope", "not a chance", "in your dreams"):
+        print("I'm confused. You said yes, but...") # Playful response if yes but response is negative
+    else:
+        print(response) # Normal response
+
+valentine_prompt()
+
+# Optional: Run the prompt multiple times
+# for _ in range(3):  # Change 3 to the desired number of times
+#     valentine_prompt()
+#     print("-" * 20)  # Separator between questions
